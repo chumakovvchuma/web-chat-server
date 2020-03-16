@@ -27,7 +27,6 @@ Download the prebuilt binaries available in the [releases]() section or clone th
 > mnml -host 0.0.0.0 -port 8080
 ```
 ### Usage
-
 ```
 > daemon
 mnml-daemon runs the socket and API daemon
