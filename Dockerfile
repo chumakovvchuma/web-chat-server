@@ -1,12 +1,14 @@
-FROM ubuntu:xenial
+FROM ubuntu:xenial-20190515
 
 RUN mkdir -p /daemon
 WORKDIR /daemon
 
+RUN apt clean && cat /etc/apt/sources.list
 RUN apt update
-RUN apt install -y golang
+RUN apt install -y golang ca-certificates
 
 COPY dist/daemon /daemon/server
 
-CMD ["/daemon/server", "--host 0.0.0.0", "--port 80"]
+ENTRYPOINT ["/daemon/server", "-host", "0.0.0.0"]
+CMD ["-port", "80"]
 
